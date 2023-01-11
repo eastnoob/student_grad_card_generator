@@ -9,9 +9,10 @@
 # print(type(a))
 
 # print("test")
-import comment
 
-a = comment.Comment("1", "2", "3")
+from comment import Comment
+
+a = Comment("1", "2", "3")
 
 print(a.result)
 

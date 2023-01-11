@@ -19,6 +19,8 @@ class Comment():
         
         time = year + "年" + month + "月" + day + "日"
         
+        print("请确认日期是否正确：Y/N： " + time)
+        
         return time
 
 
