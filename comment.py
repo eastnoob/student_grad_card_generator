@@ -2,35 +2,49 @@ class Comment():
 
     def __init__(self, name: str, 
                     comment: str, 
-                    teacher: str) -> str:
+                    teacher: str,
+                    year: str,
+                    month: str,
+                    day: str) -> None:
         
         self.name = name
         self.comment = comment
         self.teacher = teacher
-        # self.time = time
-        self.result = self.joinComment()
+        self.time = year + "年" + month + "月" + day + "日"
+        
+        # self.final_comment = self.joinComment()
         
         # return joint
         
-    def getTime(self):
-        year = input("请输入年：")
-        month = input("请输入月：")
-        day = input("请输入日：")
+    # def getTime(self):
+    #     year = input("请输入年：")
+    #     month = input("请输入月：")
+    #     day = input("请输入日：")
         
-        time = year + "年" + month + "月" + day + "日"
+    #     time = year + "年" + month + "月" + day + "日"
         
-        print("请确认日期是否正确：Y/N： " + time)
+    #     print("请确认日期是否正确：Y/N： " + time)
         
-        return time
+    #     return time
 
 
     def joinComment(self) -> str:
         time = self.getTime()
         
         joint_result = ""
-        joint_result += self.name + ": \n" + "  " + self.comment + self.teacher + "\n" + "<p align=\"right\">" + time + "</p>"
-
+        joint_result += self.name + "同学: \n" + "  " + self.comment + self.teacher + "\n" + "<p align=\"right\">" + time + "</p>"
         return joint_result
+    
+    def nameWithComment(self) -> str:
+        '''
+        Generate a dict which contained student's name and its common
+        ourput: {student's nmae: connent of this student}
+        '''
+        
+        final_comment = self.joinComment()
+        nameWithComment = {self.name: final_comment}
+        
+        return nameWithComment
 
 
 
