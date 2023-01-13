@@ -2,6 +2,7 @@
 
 import pandas as pd
 import os
+import time
 
 import score
 import comment
@@ -45,15 +46,18 @@ for row in score_df.iterrows():
     
     markdown.generateMarkdownFile()
     
-    YESSSSSSSSS = None
-    if os.path.exists(file_path):
-        YESSSSSSSSS = True
-    else:
-        YESSSSSSSSS - False
+    # YESSSSSSSSS = None
+    # if os.path.exists(file_path):
+    #     YESSSSSSSSS = True
+    # else:
+    #     YESSSSSSSSS - False
     
     # 导出
     exporter = exportCLI.ExportPDf(file_path, file_name)
+    exporter.exportPDF()
     
+    # time.sleep(5)
+    # os.waitpid()
     
     # os.wait()
     

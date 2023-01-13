@@ -31,8 +31,15 @@ class Comment():
     def joinComment(self) -> str:
         # time = self.getTime()
         
-        joint_result = ""
-        joint_result += self.name + "同学: \n" + "  " + self.comment + self.teacher + "\n" + "<p align=\"right\">" + self.time + "</p>"
+        # joint_result = ""
+        
+        head = "<body>" + self.name + "同学: " + "</body>" + "\n"
+        body_style = "<style>" + "p {text-indent:1em;}" + "</style>" + "\n"
+        body = "<p>" + self.comment + "\n\n"
+        tail = "<p align=\"right\">" + self.teacher + "</p>" + "\n" + "<p align=\"right\">" + self.time + "</p>"
+        
+        
+        joint_result = head + body_style + body + tail
         return joint_result
     
     def getComment(self) -> str:

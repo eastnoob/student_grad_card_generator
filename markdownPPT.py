@@ -1,4 +1,3 @@
-
 import os
 
 class MarkDownPPT:
@@ -20,8 +19,8 @@ class MarkDownPPT:
         self.score_table = score_table
         self.comment = comment
         
-        self.file_name = self.stu_id + self.stu_name + '.md'
-        self.file_path = 'markdowns\\' + self.file_name
+        self.file_name = self.stu_id + self.stu_name
+        self.file_path = 'markdowns\\' + self.file_name + '.md'
         
         # self.marp_file = self.marpInit() # 一个markdown文件
     
@@ -44,8 +43,8 @@ class MarkDownPPT:
         with open(self.file_path, 'a+', encoding="utf-8") as f:
             f.write('# 七年级上 第一学期期末成绩单' + '\n')
 
-            f.write('学生姓名：' + self.stu_name + '\n')
-            f.write('学生学号：' + self.stu_id + '\n')
+            f.write('<p align="left">学生姓名：' + self.stu_name + '\n')
+            f.write('<p align="left">学生学号：' + self.stu_id + '\n')
             
             f.write(self.score_table + '\n')
             

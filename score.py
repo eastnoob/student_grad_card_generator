@@ -15,14 +15,29 @@ class Score:
         
         # 获取学生信息
         student_info = row[1]
+        student_info_dropped = student_info.copy() # 防止链式传输
+
+        for label in student_info.index:
+            # print (label)
+        # for label in data.keys():
+            if label not in info:
+                # print("del" + label)
+                student_info_dropped.drop(label, inplace = True)
+                
+        
+        student_info_dict = {}
+        
+        for index in student_info_dropped.index:
+            student_info_dict[index] = student_info[index]
+        
+        '''
         for index in student_info.index:
             if index not in info:
                 student_info = student_info.drop(index)
         
-        student_info_dict = {}
-        
-        for index in student_info.index:
-            student_info_dict[index] = student_info[index]
+
+        '''
+
         
         # 获取成绩信息
         # score_data = row[1].drop("学生班级名称")
@@ -30,6 +45,7 @@ class Score:
         # score_data = score_data.drop("学生身份证件号")
         
         score_data = row[1]
+        score_data_dropped = score_data.copy()
         
         labels = [ 
                 "语文", 
@@ -48,18 +64,18 @@ class Score:
                 "化学", 
                 "生物"
                 "体育与健康"]
-        for label in score_data.keys():
+        for label in score_data.index:
         # for label in data.keys():
             if label not in labels:
-                score_data.drop(label)
+                score_data_dropped.drop(label, inplace = True)
         
         # for index in score_data.index:
         #     if index in info:
         #         score_data = score_data.drop(index)
         
         # 获得单个同学的所有成绩
-        for index in score_data.index:
-            student_score_dict[index] = score_data[index]
+        for index in score_data_dropped.index:
+            student_score_dict[index] = score_data_dropped[index]
         
         return student_info_dict, student_score_dict
         # a = TableGenerator(student).getTable()
