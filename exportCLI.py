@@ -7,29 +7,30 @@ class ExportPDf:
         
         # 读取文件路径
         self.file_path = file_path
-        while True:
-            with open(self.file_path) as f:
-                path = f.read().strip()
-            # 检查目录是否存在
-            if os.path.exists(path):
-                break
-            else:
-                # 提示输入有效路径
-                if input("请输入一个有效路径: ") == '':
-                    continue
+        # while True:
+        #     path = f.read().strip()
+        #     if os.path.exists(path):
+        #         break
+        #     with open(self.file_path) as f:
+                
+        #     # 检查目录是否存在
+        #     else:
+        #         # 提示输入有效路径
+        #         if input("请输入一个有效路径: ") == '':
+        #             continue
     
     def exportPDF(self):
         # # 构建命令，并执行
         # change path = 'start "" "{}"'.format(path)
         # os.system(command_string)
 
-        # 执行命令
-        markdown_path = "\markdowns"
-        os.system(f"cd {markdown_path}")
+        # # 执行命令
+        # markdown_path = "\markdowns"
+        # os.system(f"cd {markdown_path}")
         
-        command_string = f'npx @marp-team/marp-cli@latest {self.file_name}.md -o final_pdfs\\{self.file_name}.pdf'
+        command_string = f'npx @marp-team/marp-cli@latest {self.file_path} -o final_pdfs\\{self.file_name}.pdf'
         os.system(command_string)
-        os.wait()
+        
         
         print(f"{self.name} 完成")
 

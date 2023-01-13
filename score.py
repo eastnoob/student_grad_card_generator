@@ -25,13 +25,37 @@ class Score:
             student_info_dict[index] = student_info[index]
         
         # 获取成绩信息
-        score_data = row[1].drop("学生班级名称")
-        score_data = score_data.drop("学生上海市学籍号")
-        score_data = score_data.drop("学生身份证件号")
+        # score_data = row[1].drop("学生班级名称")
+        # score_data = score_data.drop("学生上海市学籍号")
+        # score_data = score_data.drop("学生身份证件号")
         
-        for index in score_data.index:
-            if index in info:
-                score_data = score_data.drop(index)
+        score_data = row[1]
+        
+        labels = [ 
+                "语文", 
+                "数学", 
+                "英语", 
+                "道德与法治", 
+                "科学", 
+                "地理", 
+                "历史", 
+                "音乐", 
+                "美术", 
+                "体育与健身", 
+                "探究", 
+                "劳动技术", 
+                "物理", 
+                "化学", 
+                "生物"
+                "体育与健康"]
+        for label in score_data.keys():
+        # for label in data.keys():
+            if label not in labels:
+                score_data.drop(label)
+        
+        # for index in score_data.index:
+        #     if index in info:
+        #         score_data = score_data.drop(index)
         
         # 获得单个同学的所有成绩
         for index in score_data.index:
@@ -45,6 +69,7 @@ class Score:
         Generate a HTML table containing all course and its score of a single student
         output: [student's name, student's id, scores table]
         '''
+        
         student_info = self.getInfoAndScores(self.row)[0]
         student_score = self.getInfoAndScores(self.row)[1]
         
