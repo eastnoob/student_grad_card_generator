@@ -25,7 +25,7 @@ class MarkDownPPT:
         # self.marp_file = self.marpInit() # 一个markdown文件
     
     def marpInit(self):
-        init_text = '---\nmarp: true\ntheme: default\n---\n\n'
+        init_text = '---\nmarp: true\ntheme: default\n---\n\n\n'
 
         # Check if the file exists
         if os.path.exists(self.file_path):
@@ -41,10 +41,12 @@ class MarkDownPPT:
     
     def generateScorePage(self):
         with open(self.file_path, 'a+', encoding="utf-8") as f:
+            f.write('![bg opacity:.40](bg6.png)' + '\n')
+            
             f.write('# 七年级上 第一学期期末成绩单' + '\n')
 
-            f.write('<p align="left">学生姓名：' + self.stu_name + '\n')
-            f.write('<p align="left">学生学号：' + self.stu_id + '\n')
+            f.write('* **' + '<p align="left">学生姓名：' + self.stu_name + '**' + '\n')
+            f.write('* **' + '<p align="left">学生学号：' + self.stu_id + '**' + '\n')
             
             f.write(self.score_table + '\n')
             
@@ -52,6 +54,7 @@ class MarkDownPPT:
     
     def generateCommentPage(self):
         with open(self.file_path, 'a+', encoding="utf-8") as f:
+            f.write('![bg opacity:.40](bg6.png)' + '\n')
             f.write('# 成长寄语 \n')
             f.write(self.comment)
     

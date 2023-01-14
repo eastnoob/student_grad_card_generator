@@ -30,7 +30,7 @@ class ExportPDf:
         # markdown_path = "\markdowns"
         # os.system(f"cd {markdown_path}")
         
-        command_string = f'npx @marp-team/marp-cli@latest --html --pdf {self.file_path} -o final_pdfs\\{self.file_name}.pdf'
+        command_string = f'npx @marp-team/marp-cli@latest --html --pdf --allow-local-files {self.file_path} -o final_pdfs\\{self.file_name}.pdf'
         os.system(command_string)
         # subprocess.call(command_string)
         # os.wait()

@@ -33,7 +33,7 @@ class Comment():
         
         # joint_result = ""
         
-        head = "<body>" + self.name + "同学: " + "</body>" + "\n"
+        head = "**" + "<body>" + self.name + "同学: " + "</body>" + "**" + "\n"
         body_style = "<style>" + "p {text-indent:1em;}" + "</style>" + "\n"
         body = "<p>" + self.comment + "\n\n"
         tail = "<p align=\"right\">" + self.teacher + "</p>" + "\n" + "<p align=\"right\">" + self.time + "</p>"

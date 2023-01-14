@@ -10,7 +10,7 @@ import markdownPPT
 import exportCLI
 
 # 必要内容：
-teacher = '何老师'
+teacher = '何老师 & 田老师'
 
 
 score_excel = 'tables\\学生成绩.xlsx' 
@@ -46,11 +46,11 @@ for row in score_df.iterrows():
     
     markdown.generateMarkdownFile()
     
-    # YESSSSSSSSS = None
-    # if os.path.exists(file_path):
-    #     YESSSSSSSSS = True
-    # else:
-    #     YESSSSSSSSS - False
+    YESSSSSSSSS = None
+    if os.path.exists(file_path):
+        YESSSSSSSSS = True
+    else:
+        YESSSSSSSSS - False
     
     # 导出
     exporter = exportCLI.ExportPDf(file_path, file_name)
