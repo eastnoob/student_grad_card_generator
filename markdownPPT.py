@@ -19,7 +19,7 @@ class MarkDownPPT:
         self.score_table = score_table
         self.comment = comment
         
-        self.file_name = self.stu_id + self.stu_name
+        self.file_name = self.stu_id + '_' + self.stu_name
         self.file_path = 'markdowns\\' + self.file_name + '.md'
         
         # self.marp_file = self.marpInit() # 一个markdown文件
@@ -41,7 +41,7 @@ class MarkDownPPT:
     
     def generateScorePage(self):
         with open(self.file_path, 'a+', encoding="utf-8") as f:
-            f.write('![bg opacity:.40](bg6.png)' + '\n')
+            f.write('![bg opacity:.40](bg7.png)' + '\n')
             
             f.write('# 七年级上 第一学期期末成绩单' + '\n')
 

@@ -1,6 +1,7 @@
 import os
 import subprocess
 import time
+import logging
 
 class ExportPDf:
     
@@ -30,14 +31,23 @@ class ExportPDf:
         # markdown_path = "\markdowns"
         # os.system(f"cd {markdown_path}")
         
-        command_string = f'npx @marp-team/marp-cli@latest --html --pdf --allow-local-files {self.file_path} -o final_pdfs\\{self.file_name}.pdf'
+        pdf_path = f'final_pdfs\\{self.file_name}.pdf'
+        
+        if os.path.exists(pdf_path):
+            # Delete the file if it exists
+            os.remove(pdf_path)
+                    
+        # command_string = f'npx @marp-team/marp-cli@latest --html --pdf --allow-local-files {self.file_path} -o final_pdfs\\{self.file_name}.pdf'
+        command_string = f'npx @marp-team/marp-cli@latest --html --pdf --allow-local-files {self.file_path} -o {pdf_path}'
+
         os.system(command_string)
         # subprocess.call(command_string)
         # os.wait()
-        
+        # logging.basicConfig(level=logging.ERROR)
 
+        # logging.info(f"{pdf_path} 完成")
         
-        print(f"{self.file_name} 完成")
+        print(f"---------- {pdf_path} 完成 ---------- ")
 
         # a = "npx @marp-team/marp-cli@latest --html --pdf .\{slide-deck}.md -o final_pdfs\output.pdf"
 
