@@ -1,23 +1,29 @@
 # -*- coding: utf-8 -*-  
-
-import pandas as pd
 import os
 import time
+
+try:
+    import pandas as pd
+except ImportError:
+    os.system("pip install -r requirements.txt -i https://pypi.douban.com/simple")
+    
+
 
 import score
 import comment
 import markdownPPT
 import exportCLI
 
+
 # 必要内容：
-teacher = '读者'
+teacher = '何老师 & 田老师'
 
 
 score_excel = 'tables\\学生成绩.xlsx' 
 comment_excel = 'tables\\学生评语.xlsx' 
 
-score_df = pd.read_excel(score_excel) 
-comment_df = pd.read_excel(comment_excel)
+score_df = pd.read_excel(score_excel, sheet_name='Sheet1') 
+comment_df = pd.read_excel(comment_excel, sheet_name='Sheet1')
 
 # comment = 
 
@@ -46,16 +52,17 @@ for row in score_df.iterrows():
     
     markdown.generateMarkdownFile()
     
-    YESSSSSSSSS = None
-    if os.path.exists(file_path):
-        YESSSSSSSSS = True
-    else:
-        YESSSSSSSSS - False
+    # YESSSSSSSSS = None
+    # if os.path.exists(file_path):
+    #     YESSSSSSSSS = True
+    # else:
+    #     YESSSSSSSSS - False
     
     # 导出
     exporter = exportCLI.ExportPDf(file_path, file_name)
     exporter.exportPDF()
-    
+
+# os._exit()
     # time.sleep(5)
     # os.waitpid()
     

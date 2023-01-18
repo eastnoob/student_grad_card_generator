@@ -7,6 +7,13 @@
 #     5: 0
 # }
 
+import os
+try:
+    from bs4 import BeautifulSoup
+    
+except ImportError:
+    os.system("pip install -r requirements.txt -i https://pypi.douban.com/simple")
+
 from bs4 import BeautifulSoup
 import re
 

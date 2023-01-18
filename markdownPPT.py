@@ -41,12 +41,12 @@ class MarkDownPPT:
     
     def generateScorePage(self):
         with open(self.file_path, 'a+', encoding="utf-8") as f:
-            f.write('![bg opacity:.40](bg7.png)' + '\n')
+            f.write('![bg opacity:.90](bg7.png)' + '\n')
             
             f.write('# 七年级上 第一学期期末成绩单' + '\n')
 
-            f.write('* **' + '<p align="left">学生姓名：' + self.stu_name + '**' + '\n')
-            f.write('* **' + '<p align="left">学生学号：' + self.stu_id + '**' + '\n')
+            f.write('* <strong>' + '<p align=\"left\" style = \"text-shadow: -1.5px 1.5px 0 #FFF, 1.5px 1.5px 0 #FFF, 1.5px -1.5px 0 #FFF,-1.5px -1.5px 0 #FFF; \">学生姓名：' + self.stu_name + '</strong>' + '\n')
+            f.write('* <strong>' + '<p align=\"left\" style = \"text-shadow: -1.5px 1.5px 0 #FFF, 1.5px 1.5px 0 #FFF, 1.5px -1.5px 0 #FFF,-1.5px -1.5px 0 #FFF; \">学生学号：' + self.stu_id + '</strong>' + '\n')
             
             f.write(self.score_table + '\n')
             
@@ -54,7 +54,7 @@ class MarkDownPPT:
     
     def generateCommentPage(self):
         with open(self.file_path, 'a+', encoding="utf-8") as f:
-            f.write('![bg opacity:.40](bg6.png)' + '\n')
+            f.write('![bg opacity:.90](bg9.png)' + '\n')
             f.write('# 成长寄语 \n')
             f.write(self.comment)
     

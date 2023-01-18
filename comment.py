@@ -33,13 +33,18 @@ class Comment():
         
         # joint_result = ""
         
-        head = "**" + "<body>" + self.name + "同学: " + "</body>" + "**" + "\n"
-        body_style = "<style>" + "p {text-indent:1em;}" + "</style>" + "\n"
-        body = "<p>" + self.comment + "\n\n"
-        tail = "<p align=\"right\">" + self.teacher + "</p>" + "\n" + "<p align=\"right\">" + self.time + "</p>"
+        # head = "**" + "<body>" + self.name + "同学: " + "</body>" + "**" + "\n"
+        # body_style = "<style>" + "p {text-indent:1em;}" + "</style>" + "\n"
+        # body = "<p>" + self.comment + "\n\n"
+        # tail = "<p align=\"right\">" + self.teacher + "</p>" + "\n" + "<p align=\"right\">" + self.time + "</p>"
         
+        head = "#### " + self.name + "同学: " + "\n"
+        body_style = "<p style = \'text-indent:1em; text-shadow: -1px 1px 0 #FFF, 1px 1px 0 #FFF, 1px -1px 0 #FFF,-1px -1px 0 #FFF;\' >"
+        body = self.comment + "</p>" + "\n\n"
+        tail = "<p align = \"right\" style = \'text-indent:1em; text-shadow: -1px 1px 0 #FFF, 1px 1px 0 #FFF, 1px -1px 0 #FFF,-1px -1px 0 #FFF;\'>" + self.teacher + "</p>" + "\n"
+        data = "<p align = \"right\" style = \'text-indent:1em; text-shadow: -1px 1px 0 #FFF, 1px 1px 0 #FFF, 1px -1px 0 #FFF,-1px -1px 0 #FFF;\'>" + self.time + "</p>"
         
-        joint_result = head + body_style + body + tail
+        joint_result = head + body_style + body + tail + data
         return joint_result
     
     def getComment(self) -> str:
